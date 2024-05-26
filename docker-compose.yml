@@ -1,0 +1,16 @@
+name: "onvifclient"
+networks:
+  kpsnet:
+    external: true
+
+services:
+  learning-soap:
+    stdin_open: true
+    tty: true
+    image: onvifsoap:0.1.0
+    networks:
+      - kpsnet
+    volumes:
+      - ./:/src_develop
+    working_dir: /src_develop
+    entrypoint: /bin/bash
